@@ -33,7 +33,9 @@ exports.for = function (API) {
 				label: API.getDeclaringPathId() + "/" + resolvedConfig.$to,
 				commands: resolvedConfig.commands.start,
 				cwd: resolvedConfig.basePath,
-				env: env
+				env: env,
+				config: resolvedConfig.config || {},
+				bootConfigId: (resolvedConfig.boot && resolvedConfig.boot.config) || null
 			}, callback);
 
 		})();
