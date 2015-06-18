@@ -19,7 +19,9 @@ exports.for = function (API) {
 
 		return API.Q.denodeify(function (callback) {
 
-			var env = {};
+			var env = {
+				PIO_SERVICE_CACHE_BASEPATH: API.getTargetPath()
+			};
 			for (var name in process.env) {
 				env[name] = process.env[name];
 			}
